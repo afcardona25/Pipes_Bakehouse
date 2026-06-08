@@ -1,67 +1,267 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pipe's Bakehouse: Sabor Artesanal, Pasión Hecha a Mano</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@700&family=Lato&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pipes Bakehouse – Horneado con amor</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            cream:  '#fdf6ec',
+            amber:  { DEFAULT: '#d97706', light: '#fef3c7', dark: '#92400e' },
+            slate:  { DEFAULT: '#1e293b' },
+          },
+          fontFamily: {
+            serif: ['"Georgia"', 'serif'],
+            sans:  ['"Inter"', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+    .hero-overlay { background: linear-gradient(to bottom, rgba(0,0,0,.35) 0%, rgba(0,0,0,.55) 100%); }
+    input, select, textarea { outline: none; }
+    input:focus, select:focus, textarea:focus { box-shadow: 0 0 0 2px #d97706; }
+  </style>
 </head>
-<body>
-    <header>
-        <nav>
-            <a href="index.html" class="logo">
-                <img src="images/Logo.svg" alt="Pipe's Bakehouse Logo">
-            </a>
-            <ul>
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="menu.html">Nuestros Pies</a></li>
-                <li><a href="about.html">Nuestra Historia</a></li>
-                <li><a href="#" class="cart-icon"><img src="images/cart.svg" alt="Carrito"></a></li>
-            </ul>
-        </nav>
-    </header>
+<body class="bg-[#fdf6ec] text-[#1e293b] font-sans">
 
-    <main>
-        <section class="hero">
-            <div class="hero-text">
-                <h1>Pipe's Bakehouse Sabor Artesanal, Pasión Hecha a Mano.</h1>
-                <p>La receta familiar que perfeccionamos por años, ahora en tu mesa.</p>
-                <a href="menu.html" class="cta-button">Ver Nuestros Pies</a>
-            </div>
-        </section>
+  <!-- ──────────── NAVBAR ──────────── -->
+  <header class="fixed top-0 w-full z-50 bg-[#fdf6ec]/90 backdrop-blur border-b border-amber-200">
+    <div class="max-w-5xl mx-auto px-5 h-14 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-2">
+        <span class="text-xl font-serif font-bold tracking-wide text-amber-700">Pipes Bakehouse</span>
+      </a>
+      <!-- Navegación escritorio -->
+      <nav class="hidden sm:flex items-center gap-7 text-sm font-medium text-slate-600">
+        <a href="#menu" class="hover:text-amber-600 transition-colors">Menú</a>
+        <a href="#order" class="hover:text-amber-600 transition-colors">Pedir</a>
+        <a href="#order" class="bg-amber-600 text-white px-4 py-1.5 rounded-full hover:bg-amber-700 transition-colors">Ordenar ahora</a>
+      </nav>
+      <!-- Botón menú móvil -->
+      <button id="menuBtn" class="sm:hidden p-2 rounded-md text-slate-600 hover:text-amber-600" aria-label="Menú">
+        <svg id="iconOpen" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        <svg id="iconClose" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <!-- Menú desplegable móvil -->
+    <div id="mobileMenu" class="hidden sm:hidden bg-[#fdf6ec] border-t border-amber-100 px-5 py-4 flex flex-col gap-4 text-sm font-medium text-slate-700">
+      <a href="#menu" class="hover:text-amber-600" onclick="closeMobile()">Menú</a>
+      <a href="#order" class="hover:text-amber-600" onclick="closeMobile()">Pedir</a>
+      <a href="#order" class="bg-amber-600 text-white text-center py-2 rounded-full hover:bg-amber-700" onclick="closeMobile()">Ordenar ahora</a>
+    </div>
+  </header>
 
-        <section class="about-brief">
-            <h2>De Nuestra Familia a la Tuya</h2>
-            <p>Pipe's Bakehouse nació de una receta de tradición familiar, un secreto guardado que hemos perfeccionado a través de los años. Todo lo que pruebas es hecho 100% a mano, con una dedicación absoluta y una pasión por la cocina que se siente en cada bocado.</p>
-        </section>
+  <!-- ──────────── HERO ──────────── -->
+  <section class="relative h-screen min-h-[560px] flex items-center justify-center text-center overflow-hidden">
+    <img src="images/8CD344DE-11AF-41A8-98A0-E370B236B15E.jpg"
+         alt="Pie artesanal Pipes Bakehouse"
+         class="absolute inset-0 w-full h-full object-cover object-center" />
+    <div class="hero-overlay absolute inset-0"></div>
+    <div class="relative z-10 px-6 max-w-2xl mx-auto">
+      <p class="text-amber-300 uppercase tracking-widest text-xs mb-3 font-medium">Horneado en casa, con amor</p>
+      <h1 class="text-4xl sm:text-5xl md:text-6xl font-serif font-bold text-white leading-tight mb-5">
+        Pies y pan<br/>que saben a hogar
+      </h1>
+      <p class="text-white/80 text-base sm:text-lg mb-8 leading-relaxed">
+        Recetas artesanales, ingredientes frescos y la calidez de una cocina de verdad. Entregamos felicidad en cada rebanada.
+      </p>
+      <a href="#menu"
+         class="inline-block bg-amber-500 hover:bg-amber-600 text-white font-semibold px-8 py-3 rounded-full shadow-lg transition-colors text-sm tracking-wide">
+        Ver Menú ↓
+      </a>
+    </div>
+  </section>
 
-        <section class="featured-products">
-            <h2>Productos Destacados</h2>
-            <div class="product-grid">
-                <div class="product-card">
-                    <img src="images/apple-pie.png" alt="Pie de Manzana">
-                    <h3>Pie de Manzana Clásico</h3>
-                    <button class="order-button">Ordenar Ahora</button>
-                </div>
-                <div class="product-card">
-                    <img src="images/bites.png" alt="Bites de Manzana">
-                    <h3>Bites de Manzana Horneados</h3>
-                    <button class="order-button">Ordenar Ahora</button>
-                </div>
-                <div class="product-card">
-                    <img src="images/apple-gluten-free.png" alt="Pie de Manzana Sin Gluten">
-                    <h3>Pie de Manzana Sin Gluten</h3>
-                    <button class="order-button">Ordenar Ahora</button>
-                </div>
-            </div>
-        </section>
-    </main>
+  <!-- Aviso cobertura -->
+  <div style="background:#92400e;color:#fef3c7;" class="text-center text-xs py-2 px-4 tracking-wide">
+    📍 Servicio disponible únicamente en <strong>Bogotá, Colombia</strong>
+  </div>
 
-    <footer>
-        <p>&copy; 2025 Pipe's Bakehouse. Todos los derechos reservados.</p>
-    </footer>
+  <!-- ──────────── PRODUCTS ──────────── -->
+  <section id="menu" class="py-20 px-5 max-w-5xl mx-auto">
+    <div class="text-center mb-12">
+      <p class="text-amber-600 uppercase tracking-widest text-xs mb-2 font-medium">Nuestros productos</p>
+      <h2 class="text-3xl sm:text-4xl font-serif font-bold text-slate-800">El menú</h2>
+    </div>
 
-    <script src="js/main.js"></script>
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-8">
+
+      <!-- Pie de Manzana -->
+      <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow flex flex-col">
+        <div class="h-60 overflow-hidden">
+          <img src="images/IMG_0601.JPG"
+               alt="Pie de Manzana"
+               class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+        </div>
+        <div class="p-5 flex flex-col flex-1">
+          <div class="flex items-start justify-between mb-2">
+            <h3 class="font-serif font-bold text-lg text-slate-800">Pie de Manzana</h3>
+            <span class="text-amber-600 font-semibold text-sm whitespace-nowrap ml-2">$95.000</span>
+          </div>
+          <p class="text-slate-500 text-sm leading-relaxed flex-1">
+            Relleno de manzana especiada con canela en una costra dorada y hojaldrada. Un clásico que nunca falla.
+          </p>
+          <a href="https://wa.me/p/26125664003697570/573334316210"
+             target="_blank" rel="noopener"
+             class="mt-5 flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#1ebe5c] text-white text-sm font-semibold py-2.5 rounded-full transition-colors">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Pedir por WhatsApp
+          </a>
+        </div>
+      </div>
+
+      <!-- Pie de Frutos Rojos -->
+      <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow flex flex-col">
+        <div class="h-60 overflow-hidden">
+          <img src="images/IMG_0121.jpeg"
+               alt="Pie de Frutos Rojos"
+               class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+        </div>
+        <div class="p-5 flex flex-col flex-1">
+          <div class="flex items-start justify-between mb-2">
+            <h3 class="font-serif font-bold text-lg text-slate-800">Pie de Frutos Rojos</h3>
+            <span class="text-amber-600 font-semibold text-sm whitespace-nowrap ml-2">$95.000</span>
+          </div>
+          <p class="text-slate-500 text-sm leading-relaxed flex-1">
+            Una mezcla de arándanos y moras horneados a la perfección. Dulce, ácido y completamente irresistible.
+          </p>
+          <a href="https://wa.me/p/33395924960053402/573334316210"
+             target="_blank" rel="noopener"
+             class="mt-5 flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#1ebe5c] text-white text-sm font-semibold py-2.5 rounded-full transition-colors">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Pedir por WhatsApp
+          </a>
+        </div>
+      </div>
+
+      <!-- Pan Casero -->
+      <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow flex flex-col">
+        <div class="h-60 overflow-hidden">
+          <img src="images/WhatsApp Image 2026-06-02 at 22.34.33.jpeg"
+               alt="Pan Casero"
+               class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500" />
+        </div>
+        <div class="p-5 flex flex-col flex-1">
+          <div class="flex items-start justify-between mb-2">
+            <h3 class="font-serif font-bold text-lg text-slate-800">Pan Casero</h3>
+            <span class="text-amber-600 font-semibold text-sm whitespace-nowrap ml-2">$22.000</span>
+          </div>
+          <p class="text-slate-500 text-sm leading-relaxed flex-1">
+            Costra crujiente, miga suave y aireada. Perfecto para el desayuno o para acompañar tu comida favorita.
+          </p>
+          <a href="https://wa.me/c/573334316210"
+             target="_blank" rel="noopener"
+             class="mt-5 flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#1ebe5c] text-white text-sm font-semibold py-2.5 rounded-full transition-colors">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Pedir por WhatsApp
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ──────────── CTA / ORDER ──────────── -->
+  <section id="order" class="bg-amber-50 border-t border-amber-100 py-20 px-5">
+    <div class="max-w-lg mx-auto text-center">
+      <p class="text-amber-600 uppercase tracking-widest text-xs mb-2 font-medium">¿Listo para ordenar?</p>
+      <h2 class="text-3xl sm:text-4xl font-serif font-bold text-slate-800 mb-4">Haz tu pedido</h2>
+      <p class="text-slate-500 text-sm mb-8 leading-relaxed">
+        Escríbenos por WhatsApp con tu nombre, el producto y la cantidad. Hacemos entregas a domicilio y contamos con pedidos anticipados para eventos especiales.
+      </p>
+
+      <!-- WhatsApp CTA buttons -->
+      <div class="flex flex-col sm:flex-row gap-3 justify-center mb-10">
+        <a href="https://wa.me/p/26125664003697570/573334316210" target="_blank" rel="noopener"
+           class="flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#1ebe5c] text-white font-semibold px-6 py-3 rounded-full transition-colors text-sm shadow">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Pie de Manzana
+        </a>
+        <a href="https://wa.me/p/33395924960053402/573334316210" target="_blank" rel="noopener"
+           class="flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#1ebe5c] text-white font-semibold px-6 py-3 rounded-full transition-colors text-sm shadow">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Pie Frutos Rojos
+        </a>
+        <a href="https://wa.me/c/573334316210" target="_blank" rel="noopener"
+           class="flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#1ebe5c] text-white font-semibold px-6 py-3 rounded-full transition-colors text-sm shadow">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Pan Casero
+        </a>
+      </div>
+
+      <div class="relative">
+        <div class="absolute inset-0 flex items-center"><div class="w-full border-t border-amber-200"></div></div>
+        <div class="relative flex justify-center text-xs text-slate-400 uppercase tracking-widest"><span class="bg-amber-50 px-4">o déjanos un mensaje</span></div>
+      </div>
+
+      <!-- Formulario de contacto -->
+      <form class="mt-8 space-y-4 text-left"
+            action="https://formspree.io/f/placeholder"
+            method="POST">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-medium text-slate-600 mb-1">Nombre</label>
+            <input type="text" name="nombre" required placeholder="Tu nombre"
+                   class="w-full border border-amber-200 rounded-lg px-3 py-2 text-sm bg-white placeholder-slate-300 transition" />
+          </div>
+          <div>
+            <label class="block text-xs font-medium text-slate-600 mb-1">Correo</label>
+            <input type="email" name="correo" required placeholder="tu@email.com"
+                   class="w-full border border-amber-200 rounded-lg px-3 py-2 text-sm bg-white placeholder-slate-300 transition" />
+          </div>
+        </div>
+        <div>
+          <label class="block text-xs font-medium text-slate-600 mb-1">Producto</label>
+          <select name="producto" required
+                  class="w-full border border-amber-200 rounded-lg px-3 py-2 text-sm bg-white text-slate-700 transition">
+            <option value="" disabled selected>Selecciona un producto</option>
+            <option>Pie de Manzana – $95.000</option>
+            <option>Pie de Frutos Rojos – $95.000</option>
+            <option>Pan Casero – $22.000</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-xs font-medium text-slate-600 mb-1">Notas adicionales</label>
+          <textarea name="notas" rows="3" placeholder="Fecha de entrega, dirección, cantidad…"
+                    class="w-full border border-amber-200 rounded-lg px-3 py-2 text-sm bg-white placeholder-slate-300 transition resize-none"></textarea>
+        </div>
+        <button type="submit"
+                class="w-full bg-amber-600 hover:bg-amber-700 text-white font-semibold py-3 rounded-full transition-colors text-sm tracking-wide shadow">
+          Enviar mensaje
+        </button>
+        <p class="text-center text-xs text-slate-400">Te responderemos por WhatsApp o correo en menos de 24 horas.</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- ──────────── FOOTER ──────────── -->
+  <footer class="bg-slate-800 text-slate-400 text-center py-6 px-5 text-xs">
+    <p class="font-serif text-white text-sm mb-1">Pipes Bakehouse</p>
+    <p>Horneado con amor · Medellín, Colombia</p>
+    <p class="mt-3">© 2026 Pipes Bakehouse. Todos los derechos reservados.</p>
+  </footer>
+
+  <script>
+    const btn = document.getElementById('menuBtn');
+    const menu = document.getElementById('mobileMenu');
+    const open = document.getElementById('iconOpen');
+    const close = document.getElementById('iconClose');
+    btn.addEventListener('click', () => {
+      const hidden = menu.classList.toggle('hidden');
+      open.classList.toggle('hidden', !hidden);
+      close.classList.toggle('hidden', hidden);
+    });
+    function closeMobile() {
+      menu.classList.add('hidden');
+      open.classList.remove('hidden');
+      close.classList.add('hidden');
+    }
+  </script>
 </body>
 </html>
