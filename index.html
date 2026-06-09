@@ -3,7 +3,87 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pipes Bakehouse – Horneado con amor</title>
+  <title>Pipes Bakehouse – Pies y Pan Artesanal a Domicilio en Bogotá</title>
+
+  <!-- SEO Primary -->
+  <meta name="description" content="Pipes Bakehouse: pies y pan artesanal horneados en casa con ingredientes frescos. Pie de manzana, pie de frutos rojos y pan casero. Pedidos por WhatsApp con domicilio en Bogotá." />
+  <meta name="keywords" content="pie artesanal Bogotá, pan casero Bogotá, panadería a domicilio Bogotá, pie de manzana Bogotá, pie de frutos rojos Bogotá, repostería artesanal Bogotá, bakery Bogotá, pan horneado en casa" />
+  <link rel="canonical" href="https://afcardona25.github.io/Pipes_Bakehouse/" />
+
+  <!-- Open Graph / Social -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Pipes Bakehouse" />
+  <meta property="og:url" content="https://afcardona25.github.io/Pipes_Bakehouse/" />
+  <meta property="og:title" content="Pipes Bakehouse – Pies y Pan Artesanal a Domicilio en Bogotá" />
+  <meta property="og:description" content="Pies y pan artesanal horneados en casa con ingredientes frescos y mucho amor. Pie de manzana, frutos rojos y pan casero. Pedidos por WhatsApp, domicilios en Bogotá." />
+  <meta property="og:image" content="https://afcardona25.github.io/Pipes_Bakehouse/images/IMG_0601.JPG" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content="es_CO" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Pipes Bakehouse – Pies y Pan Artesanal en Bogotá" />
+  <meta name="twitter:description" content="Pies y pan artesanal horneados en casa con ingredientes frescos. Domicilios en Bogotá." />
+  <meta name="twitter:image" content="https://afcardona25.github.io/Pipes_Bakehouse/images/IMG_0601.JPG" />
+  <!-- JSON-LD Structured Data — Bakery + Products (for Google, ChatGPT, Perplexity) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": ["Bakery", "FoodEstablishment"],
+    "name": "Pipes Bakehouse",
+    "description": "Panadería y repostería artesanal en Bogotá. Pies de manzana, frutos rojos y pan casero horneados en casa con ingredientes frescos, entregados a domicilio.",
+    "url": "https://afcardona25.github.io/Pipes_Bakehouse/",
+    "telephone": "+573334316210",
+    "image": "https://afcardona25.github.io/Pipes_Bakehouse/images/IMG_0601.JPG",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Bogotá",
+      "addressRegion": "Cundinamarca",
+      "addressCountry": "CO"
+    },
+    "areaServed": { "@type": "City", "name": "Bogotá" },
+    "servesCuisine": "Panadería artesanal",
+    "priceRange": "$$",
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Menú Pipes Bakehouse",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "MenuItem",
+            "name": "Pie de Manzana",
+            "description": "Relleno de manzana especiada con canela en una costra dorada y hojaldrada. Un clásico artesanal.",
+            "image": "https://afcardona25.github.io/Pipes_Bakehouse/images/IMG_0601.JPG",
+            "offers": { "@type": "Offer", "price": "95000", "priceCurrency": "COP" }
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "MenuItem",
+            "name": "Pie de Frutos Rojos",
+            "description": "Mezcla de arándanos y moras horneados a la perfección. Dulce, ácido e irresistible.",
+            "image": "https://afcardona25.github.io/Pipes_Bakehouse/images/IMG_0121.jpeg",
+            "offers": { "@type": "Offer", "price": "95000", "priceCurrency": "COP" }
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "MenuItem",
+            "name": "Pan Casero",
+            "description": "Costra crujiente, miga suave y aireada. Perfecto para el desayuno o para acompañar tu comida favorita.",
+            "offers": { "@type": "Offer", "price": "22000", "priceCurrency": "COP" }
+          }
+        }
+      ]
+    }
+  }
+  </script>
+
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -143,7 +223,7 @@
       <!-- Pan Casero -->
       <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow flex flex-col">
         <div class="h-60 overflow-hidden">
-          <img src="images/WhatsApp Image 2026-06-02 at 22.34.33.jpeg"
+          <img src="images/WhatsApp%20Image%202026-06-02%20at%2022.34.33.jpeg"
                alt="Pan Casero"
                class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" style="object-position: 50% 30%;" />
         </div>
@@ -195,55 +275,13 @@
         </a>
       </div>
 
-      <div class="relative">
-        <div class="absolute inset-0 flex items-center"><div class="w-full border-t border-amber-200"></div></div>
-        <div class="relative flex justify-center text-xs text-slate-400 uppercase tracking-widest"><span class="bg-amber-50 px-4">o déjanos un mensaje</span></div>
-      </div>
-
-      <!-- Formulario de contacto -->
-      <form class="mt-8 space-y-4 text-left"
-            action="https://formspree.io/f/placeholder"
-            method="POST">
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <div>
-            <label class="block text-xs font-medium text-slate-600 mb-1">Nombre</label>
-            <input type="text" name="nombre" required placeholder="Tu nombre"
-                   class="w-full border border-amber-200 rounded-lg px-3 py-2 text-sm bg-white placeholder-slate-300 transition" />
-          </div>
-          <div>
-            <label class="block text-xs font-medium text-slate-600 mb-1">Correo</label>
-            <input type="email" name="correo" required placeholder="tu@email.com"
-                   class="w-full border border-amber-200 rounded-lg px-3 py-2 text-sm bg-white placeholder-slate-300 transition" />
-          </div>
-        </div>
-        <div>
-          <label class="block text-xs font-medium text-slate-600 mb-1">Producto</label>
-          <select name="producto" required
-                  class="w-full border border-amber-200 rounded-lg px-3 py-2 text-sm bg-white text-slate-700 transition">
-            <option value="" disabled selected>Selecciona un producto</option>
-            <option>Pie de Manzana – $95.000</option>
-            <option>Pie de Frutos Rojos – $95.000</option>
-            <option>Pan Casero – $22.000</option>
-          </select>
-        </div>
-        <div>
-          <label class="block text-xs font-medium text-slate-600 mb-1">Notas adicionales</label>
-          <textarea name="notas" rows="3" placeholder="Fecha de entrega, dirección, cantidad…"
-                    class="w-full border border-amber-200 rounded-lg px-3 py-2 text-sm bg-white placeholder-slate-300 transition resize-none"></textarea>
-        </div>
-        <button type="submit"
-                class="w-full bg-amber-600 hover:bg-amber-700 text-white font-semibold py-3 rounded-full transition-colors text-sm tracking-wide shadow">
-          Enviar mensaje
-        </button>
-        <p class="text-center text-xs text-slate-400">Te responderemos por WhatsApp o correo en menos de 24 horas.</p>
-      </form>
     </div>
   </section>
 
   <!-- ──────────── FOOTER ──────────── -->
   <footer class="bg-slate-800 text-slate-400 text-center py-6 px-5 text-xs">
     <p class="font-serif text-white text-sm mb-1">Pipes Bakehouse</p>
-    <p>Horneado con amor · Medellín, Colombia</p>
+    <p>Horneado con amor · Bogotá, Colombia</p>
     <p class="mt-3">© 2026 Pipes Bakehouse. Todos los derechos reservados.</p>
   </footer>
 
